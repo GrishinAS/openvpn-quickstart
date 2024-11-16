@@ -14,9 +14,10 @@ echo "Using protocol: $PROTOCOL"
 
 # clean previously created containers
 sudo docker container prune -f
+sudo docker volume rm $OVPN_DATA
 
 # generate openvpn generator config
-sudo docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -e OVPN_PORT="$PORT" -u "$PROTOCOL"://"$HOST"
+sudo docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u "$PROTOCOL"://"$HOST"
 # generate keys
 sudo docker run -v $OVPN_DATA:/etc/openvpn -e EASYRSA_BATCH=1 --rm -it kylemanna/openvpn ovpn_initpki nopass
 # build rsa config
