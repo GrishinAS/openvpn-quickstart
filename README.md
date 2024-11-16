@@ -28,3 +28,8 @@ If the IP of the server has changed after restart, run:
 ./reset-vpn.sh PROTOCOL IP PORT
 ```
 Configs will be recreated, so you need to reload them to your clients again.
+
+###
+Issues:
+
+Works only with default port 1194 for now
