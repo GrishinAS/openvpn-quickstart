@@ -3,9 +3,8 @@ PROTOCOL="$1"
 HOST="$2"
 PORT="$3"
 
-if [[ -z "$PROTOCOL" ] || [ -z "$HOST" ] || [ -z "$PORT" ]]; then
-    echo "Please provide parameters in format: protocol[tcp;udp] host port" 1>&2
-    exit 1
+if [ -z "$PROTOCOL" ] || [ -z "$HOST" ] || [ -z "$PORT" ]; then
+    echo "Error: Missing required parameters. Usage: $0 [protocol (tcp|udp)] [host] [port]" 1>&2
 fi
 
 # generate openvpn generator config
