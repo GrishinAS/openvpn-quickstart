@@ -15,7 +15,7 @@ If not specified default port will be 1194, protocol - tcp.
 ./install-vpn.sh IP [PORT] [PROTOCOL]
 
 Example:
-./install-vpn.sh tcp 84.252.131.56 1194
+./install-vpn.sh 84.252.131.56 1194 tcp
 ```
 
 Starts docker container and generates vpnconfig.ovpn file in the current folder. Config is just a text file, so you can just copy and paste it to a new file on your device.
@@ -27,9 +27,9 @@ If you need to run your vpn server again after your server restarted with the sa
 ```shell
 ./run-vpn.sh [PROTOCOL] [PORT]
 ```
-If the IP of the server has changed after restart, run:
+If the IP of the server has changed after restart, or there was an error during installation, and you want to clean installation and run again:
 ```shell
-./reset-vpn.sh IP [PORT] [PROTOCOL] 
+./reinstall-vpn.sh IP [PORT] [PROTOCOL] 
 ```
 Configs will be recreated, so you need to reload them to your clients again.
 
